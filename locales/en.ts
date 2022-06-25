@@ -7,11 +7,14 @@ export default {
     webInfo: 'This webpage uses React 18 and Mantine. You can find the repository at',
   },
   navbar: {
+    home: 'Home',
     about: 'About',
-    skills: 'Skills',
+    // skills: 'Skills',
     projects: 'Projects',
-    myProjects: 'My projects',
-    collabs: 'Collabs',
+    // myProjects: 'My projects',
+    // collabs: 'Collabs',
     contact: 'Contact me',
+    english: 'English',
+    spanish: 'Español',
   },
 };
