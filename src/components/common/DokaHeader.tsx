@@ -1,7 +1,14 @@
 // TODO - Change selected tab on navigation change
 
 import { memo, useRef } from 'react';
-import { faHome, faEnvelope, faGlobe, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import {
+  faHome,
+  faEnvelope,
+  faGlobe,
+  faMoon,
+  faSun,
+  faAddressCard,
+} from '@fortawesome/free-solid-svg-icons';
 import { faReact } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -19,11 +26,11 @@ import {
 } from '@mantine/core';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
+import { DokaButton } from '@/components/mantine';
 import { useTranslate, useUpdateLanguage } from '@/hooks';
 import { flagEN, flagES } from '@/logic';
 import { FrontRoutes } from '@/routes';
 import { NavItem } from '@/types';
-import DokaButton from './mantine/DokaButton/DokaButton';
 
 interface DokaHeaderProps {
   height: string | number;
@@ -50,7 +57,7 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
     {
       label: t('about'),
       to: FrontRoutes.about,
-      icon: faHome,
+      icon: faAddressCard,
       ref: useRef(),
     },
     {
@@ -84,6 +91,7 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
     header: {
       sx: {
         padding: '10px 5%!important',
+        userSelect: 'none' as const,
       },
     },
     tabs: {
@@ -107,6 +115,7 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
         },
       },
       color: 'gray',
+      hoverColor: 'pink',
     },
   };
 

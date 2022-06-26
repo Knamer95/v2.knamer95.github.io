@@ -5,9 +5,9 @@ import { faReact, faJsSquare } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Anchor, Box, Collapse, Navbar, NavbarProps } from '@mantine/core';
 
-import { useTranslate } from '../hooks';
-import { NavItem } from '@/types';
+import { useTranslate } from '@/hooks';
 import { FrontRoutes } from '@/routes';
+import { NavItem } from '@/types';
 
 const DokaNavbar = memo((props: Partial<NavbarProps>) => {
   const t = useTranslate('navbar');

@@ -1,4 +1,5 @@
 import { CSSObject, Paper, PaperProps } from '@mantine/core';
+
 import { useStyles } from './DokaCard.styles';
 
 interface DokaCardProps {

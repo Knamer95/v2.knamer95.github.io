@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    // "baseUrl": "./src", // Setting this would change the paths routes
     "paths": {
       "@/*": ["./src/*"],
     },

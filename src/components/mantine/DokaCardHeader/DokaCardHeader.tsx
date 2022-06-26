@@ -1,4 +1,5 @@
-import { CSSObject, Text, TextProps, TitleOrder, useMantineTheme } from '@mantine/core';
+import { Text, TextProps, TitleOrder, useMantineTheme } from '@mantine/core';
+
 import { useStyles } from './DokaCardHeader.styles';
 
 interface DokaCardHeaderProps {

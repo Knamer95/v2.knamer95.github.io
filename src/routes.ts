@@ -1,5 +1,8 @@
 import About from './pages/About';
+import Contact from './pages/Contact';
+import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import Projects from './pages/Projects';
 
 export enum FrontRoutes {
   home = '/',
@@ -11,7 +14,7 @@ export enum FrontRoutes {
 }
 
 const home = {
-  component: About,
+  component: Home,
   path: FrontRoutes.home,
   exact: true,
 };
@@ -23,13 +26,13 @@ const about = {
 };
 
 const projects = {
-  component: About,
+  component: Projects,
   path: FrontRoutes.projects,
   exact: true,
 };
 
 const contactMe = {
-  component: About,
+  component: Contact,
   path: FrontRoutes.contact,
   exact: true,
 };

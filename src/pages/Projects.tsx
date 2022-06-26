@@ -4,8 +4,8 @@ import { useDocumentTitle } from '@mantine/hooks';
 import { useTranslate } from '@/hooks';
 import { DokaCard, DokaCardBody, DokaCardHeader } from '@/components/mantine';
 
-const About = memo(() => {
-  const t = useTranslate('about');
+const Projects = memo(() => {
+  const t = useTranslate('projects');
   useDocumentTitle(t('title'));
 
   return (
@@ -18,4 +18,4 @@ const About = memo(() => {
   );
 });
 
-export default About;
+export default Projects;

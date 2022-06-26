@@ -1,5 +1,5 @@
-import { Box } from '@mantine/core';
 import { ReactNode } from 'react';
+import { Box } from '@mantine/core';
 
 interface DokaCardBodyProps {
   className?: string;

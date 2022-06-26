@@ -1,10 +1,12 @@
 // TODO - Change selected tab on navigation change
 
 import { memo } from 'react';
-import { Footer, FooterProps, Sx } from '@mantine/core';
+import { Box, Footer, FooterProps, Group, Sx, Text } from '@mantine/core';
+
+import { SocialLinks } from '@/components/common';
 
 interface DokaFooterProps {
-    className?: string;
+  className?: string;
 }
 
 const DokaFooter = memo(
@@ -12,7 +14,7 @@ const DokaFooter = memo(
     const childrenProps = {
       footer: {
         sx: {
-          padding: '40px 5%!important',
+          padding: '20px 5%!important',
           position: 'relative',
           zIndex: 0,
         } as Sx,
@@ -21,7 +23,14 @@ const DokaFooter = memo(
 
     return (
       <Footer {...props} {...childrenProps.footer}>
-        Footer Copyright 2022 Knamer95. All rights reserved. Github Linkedin
+        <Group sx={{ justifyContent: 'space-between' }}>
+          <Text>Copyright Ⓒ 2022 Knamer95. All rights reserved.</Text>
+          <Box sx={{ fontSize: 22 }}>
+            <Group>
+              <SocialLinks />
+            </Group>
+          </Box>
+        </Group>
       </Footer>
     );
   },

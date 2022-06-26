@@ -12,6 +12,7 @@ body {
   overflow: hidden;
 }
 
+/*
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -28,7 +29,11 @@ svg,
 body, 
 .mantine-Header-root, 
 .mantine-AppShell-main, 
-.mantine-Button-root,
 .mantine-Paper-root {
   transition: background-color var(--mode-transition), border-color var(--mode-transition);
 }
+
+.mantine-Button-root {
+  transition: background-color var(--mode-transition), color var(--mode-transition), border-color var(--mode-transition);
+}
+*/
