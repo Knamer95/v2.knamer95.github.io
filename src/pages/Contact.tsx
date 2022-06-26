@@ -52,7 +52,7 @@ const Contact = memo(() => {
                   ),
                   ViteAnchor: <DokaButton href="https://vitejs.dev/" {...childrenProps.button} />,
                   MantineAnchor: (
-                    <DokaButton href="https://mantine.dev//" {...childrenProps.button} />
+                    <DokaButton href="https://mantine.dev/" {...childrenProps.button} />
                   ),
                 }}
               >
@@ -70,16 +70,12 @@ const Contact = memo(() => {
           <Group spacing="xs" sx={{ fontSize: 20 }}>
             <SocialLinks />
           </Group>
-          {/* 
-          <Space h={30} />
+          
+          {/* <Space h={30} />
 
           {Array.from({ length: 40 }).map((_, index) => (
             <Box key={`fill-text-${index}`}>Fill text to remove</Box>
           ))} */}
-
-          {/* <Box>
-            <Image src={aboutMe} title="About me" alt={t('about_me_alt')} width={20} />
-          </Box> */}
         </DokaCardBody>
       </DokaCard>
     </>

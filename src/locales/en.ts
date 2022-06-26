@@ -11,10 +11,10 @@ export default {
   contact: {
     title: 'Contact me',
     htmlTitle: 'Contact me',
-    p1: `Currently I'm not interested in any kind of freelance work, but I enjoy making
+    p1: `Currently I'm not interested in any kind of freelance work, nor open to job offers, but I enjoy making
     projects/contributions on my spare time for the sake of learning and growing up as a
     developer.`,
-    p2: 'If you are interested in the technologies used in this webpage, you can find them in the <anchor>repo</anchor>.',
+    p2: 'If you are interested in the technologies used in this webpage, you can find them in the <RepoAnchor>repo</RepoAnchor>.',
     p3: `Mainly built with: <ReactAnchor>React 18</ReactAnchor> with <TypeScriptAnchor>TypeScript</TypeScriptAnchor>, 
     <ViteAnchor>Vite</ViteAnchor>, and <MantineAnchor>Mantine 5</MantineAnchor>.`,
     p4: `If you'd like to collaborate with me, ask me anything, or just want to hang out, feel free to contact me through any of my social plaforms below.`,

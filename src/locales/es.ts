@@ -11,7 +11,7 @@ export default {
   contact: {
     title: 'Contacto',
     htmlTitle: 'Contacto',
-    p1: `Actualmente no estoy interesado en ningún tipo de trabajo freelance, pero me gusta hacer
+    p1: `Actualmente no estoy interesado en ningún tipo de trabajo freelance, ni abierto a nuevas ofertas de trabajo, pero me gusta hacer
     proyectos/contribuciones en mi tiempo libre para aprender, y crecer como desarrollador.`,
     p2: 'Si estás interesado en las tecnologías usadas, puedes ver el código de la web en el <RepoAnchor>repo</RepoAnchor>.',
     p3: `Principalmente construido con: <ReactAnchor>React 18</ReactAnchor> con <TypeScriptAnchor>TypeScript</TypeScriptAnchor>, 
