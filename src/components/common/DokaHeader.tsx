@@ -103,7 +103,7 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
     },
     getTab: ({ to, icon }: HeaderItem) => ({
       value: to,
-      icon: <FontAwesomeIcon icon={icon} />,
+      // icon: <FontAwesomeIcon icon={icon} />,
       sx: { padding: '10px 20px' },
     }),
     button: {

@@ -26,24 +26,25 @@ const SocialLinks = () => {
     },
   ];
 
+  const linkProps = {
+    sx: {
+      fontSize: 'inherit',
+      color: 'inherit',
+      transition: 'color 0s !important',
+      '&:hover': {
+        color: `${theme.fn.rgba(
+          theme.colors.pink[colorScheme === 'light' ? 5 : 7],
+          0.7,
+        )} !important`,
+      },
+    },
+    target: '_blank',
+  };
+
   return (
     <>
       {links.map(({ icon, href }) => (
-        <Anchor
-          key={href}
-          href={href}
-          sx={{
-            fontSize: 'inherit',
-            color: 'inherit',
-            transition: 'color 0s !important',
-            '&:hover': {
-              color: `${theme.fn.rgba(
-                theme.colors.pink[colorScheme === 'light' ? 5 : 7],
-                0.7,
-              )} !important`,
-            },
-          }}
-        >
+        <Anchor key={href} href={href} {...linkProps}>
           <FontAwesomeIcon icon={icon} />
         </Anchor>
       ))}
