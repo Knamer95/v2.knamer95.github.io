@@ -1,9 +1,11 @@
-import { memo } from 'react';
+// TODO - Change selected tab on navigation change
 
-import { useTranslate } from '../hooks/useTranslate';
+import { memo, useRef } from 'react';
+import { faHome, faEnvelope, faGlobe, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { faReact } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Box,
-  Button,
   Group,
   Header,
   HeaderProps,
@@ -15,14 +17,13 @@ import {
   useMantineColorScheme,
   useMantineTheme,
 } from '@mantine/core';
-import { NavItem } from '@/types/navbar';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+
+import { useTranslate, useUpdateLanguage } from '@/hooks';
+import { flagEN, flagES } from '@/logic';
 import { FrontRoutes } from '@/routes';
-import { faHome, faEnvelope, faGlobe, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import { faReact, faJsSquare } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useNavigate, useParams } from 'react-router-dom';
-import { flagEN, flagES } from '@/logic/flags';
-import { useUpdateLanguage } from '@/hooks/useUpdateLanguage';
+import { NavItem } from '@/types';
+import DokaButton from './mantine/DokaButton/DokaButton';
 
 interface DokaHeaderProps {
   height: string | number;
@@ -31,33 +32,38 @@ interface DokaHeaderProps {
 const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
   const t = useTranslate('navbar');
   const navigate = useNavigate();
+  const location = useLocation();
   const { tabValue } = useParams();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const theme = useMantineTheme();
 
   const { currentLanguage, updateLanguage } = useUpdateLanguage();
 
-  type HeaderItem = Required<Pick<NavItem, 'label' | 'to' | 'icon'>>;
+  type HeaderItem = Required<Pick<NavItem, 'label' | 'to' | 'icon' | 'ref'>>;
   const headerItems: HeaderItem[] = [
     {
       label: t('home'),
       to: FrontRoutes.home,
       icon: faHome,
+      ref: useRef(),
     },
     {
       label: t('about'),
       to: FrontRoutes.about,
       icon: faHome,
+      ref: useRef(),
     },
     {
       label: t('projects'),
       to: FrontRoutes.projects,
       icon: faReact,
+      ref: useRef(),
     },
     {
       label: t('contact'),
       to: FrontRoutes.contact,
       icon: faEnvelope,
+      ref: useRef(),
     },
   ];
 
@@ -77,7 +83,7 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
   const childrenProps = {
     header: {
       sx: {
-        padding: '10px 40px!important',
+        padding: '10px 5%!important',
       },
     },
     tabs: {
@@ -107,36 +113,44 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
   return (
     <Header {...props} {...childrenProps.header}>
       <Group sx={{ justifyContent: 'space-between' }}>
-        <Title order={4}>
-          <Text color="pink" sx={{ display: 'inline' }}>
-            @{' '}
+        <Title order={4} sx={{ display: 'flex' }}>
+          <Text
+            color="pink"
+            sx={{ display: 'flex', alignItems: 'center', fontSize: 33, lineHeight: 0 }}
+          >
+            @&nbsp;
           </Text>
           Knamer95
         </Title>
         <Box sx={{ display: 'flex', gap: 10 }}>
           <Tabs
-            defaultValue={FrontRoutes.home}
+            defaultValue={location.pathname}
             color="pink"
-            onTabChange={(to: FrontRoutes) => {
-              console.log(to);
-              navigate(to);
-            }}
+            // onTabChange={(to: FrontRoutes) => navigate(to)}
             {...childrenProps.tabs}
           >
             <Tabs.List position="right">
               {headerItems.map((item) => (
-                <Tabs.Tab key={item.label} {...childrenProps.getTab(item)}>
+                <Tabs.Tab
+                  key={item.label}
+                  {...childrenProps.getTab(item)}
+                  onClick={() => item.to !== location.pathname && navigate(item.to)}
+                >
                   {item.label}
                 </Tabs.Tab>
               ))}
             </Tabs.List>
           </Tabs>
 
-          <Menu position="bottom-end" onChange={(val) => console.log('--val', val)}>
+          <Menu position="bottom-end">
             <Menu.Target>
-              <Button variant="light" {...childrenProps.button}>
+              <DokaButton variant="light" {...childrenProps.button}>
                 <FontAwesomeIcon icon={faGlobe} />
-              </Button>
+                <Text sx={{ display: 'inline-block', fontFamily: 'monospace' }}>
+                  &nbsp;
+                  {(currentLanguage || 'en')?.toUpperCase()}
+                </Text>
+              </DokaButton>
             </Menu.Target>
             <Menu.Dropdown>
               {flags.map(({ label, lang, icon }) => (
@@ -145,16 +159,11 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
                   icon={<Image width={15} src={icon} />}
                   onClick={() => updateLanguage(lang)}
                   sx={{
-                    // borderLeft: `3px solid ${
-                    //   currentLanguage === lang
-                    //     ? theme.fn.rgba(theme.colors.blue[colorScheme === 'light' ? 2 : 9], 0.8)
-                    //     : 'transparent'
-                    // }`,
                     ...(currentLanguage === lang && {
-                      borderRadius: 0,
-                      cursor: 'default',
-                      pointerEvents: 'none',
-                      background: theme.fn.rgba(theme.colors.blue[colorScheme === 'light' ? 2 : 9], 0.2)
+                      background: `${theme.fn.rgba(
+                        theme.colors.pink[colorScheme === 'light' ? 3 : 9],
+                        0.2,
+                      )} !important`,
                     }),
                   }}
                 >
@@ -164,9 +173,9 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
             </Menu.Dropdown>
           </Menu>
 
-          <Button variant="light" onClick={() => toggleColorScheme()} {...childrenProps.button}>
+          <DokaButton variant="light" onClick={() => toggleColorScheme()} {...childrenProps.button}>
             <FontAwesomeIcon icon={colorScheme === 'light' ? faMoon : faSun} />
-          </Button>
+          </DokaButton>
         </Box>
       </Group>
     </Header>

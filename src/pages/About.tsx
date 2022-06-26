@@ -1,15 +1,15 @@
-import { DokaCard, DokaCardBody, DokaCardHeader } from '@/components/mantine';
-import { useTranslate } from '@/hooks/useTranslate';
+import { memo } from 'react';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Anchor, Box, Image, Text } from '@mantine/core';
-import { memo } from 'react';
+import { Anchor, Box, Text } from '@mantine/core';
+import { useDocumentTitle } from '@mantine/hooks';
+
+import { DokaCard, DokaCardBody, DokaCardHeader } from '@/components/mantine';
+import { useTranslate } from '@/hooks';
 
 const About = memo(() => {
-  // console.log('About loaded');
   const t = useTranslate('contact');
-
-  document.title = t('title');
+  useDocumentTitle(t('title'));
 
   return (
     <>
@@ -35,6 +35,11 @@ const About = memo(() => {
               <Anchor href="https://github.com/Knamer95/react-knamer-web">React Knamer Web</Anchor>.
             </Text>
           </Box>
+
+          {Array.from({ length: 40 }).map((_, index) => (
+            <Box key={`fill-text-${index}`}>Fill text to remove</Box>
+          ))}
+
           {/* <Box>
             <Image src={aboutMe} title="About me" alt={t('about_me_alt')} width={20} />
           </Box> */}

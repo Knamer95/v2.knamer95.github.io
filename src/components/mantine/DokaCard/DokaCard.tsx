@@ -6,9 +6,9 @@ interface DokaCardProps {
   className?: string;
 }
 
-const DokaCard = (props: DokaCardProps & PaperProps<'div'>) => {
+const DokaCard = (props: DokaCardProps & PaperProps) => {
   const { styles, children } = props;
-  const { classes } = useStyles(styles);
+  const { classes } = useStyles(styles ?? {});
 
   return <Paper className={classes.root}>{children}</Paper>;
 };

@@ -1,18 +1,26 @@
-import { Title, TitleProps } from '@mantine/core';
+import { CSSObject, Text, TextProps, TitleOrder, useMantineTheme } from '@mantine/core';
+import { useStyles } from './DokaCardHeader.styles';
 
 interface DokaCardHeaderProps {
   className?: string;
+  order?: TitleOrder;
+  noPadding?: boolean;
 }
 
-const DokaCardHeader = (props: DokaCardHeaderProps & TitleProps) => {
-  const { children, order = 1, ...rest } = props;
+const DokaCardHeader = (props: DokaCardHeaderProps & TextProps) => {
+  const { children, order = 1, noPadding, ...rest } = props;
+  const theme = useMantineTheme();
+  const size = theme.headings.sizes[`h${order}`];
+
+  const { classes } = useStyles({ noPadding, size });
 
   const titleProps = {
-    order,
+    color: 'pink',
+    className: classes.root,
     ...rest,
   };
 
-  return <Title {...titleProps}>{children}</Title>;
+  return <Text {...titleProps}>{children}</Text>;
 };
 
 export default DokaCardHeader;

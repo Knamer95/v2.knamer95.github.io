@@ -1,6 +1,6 @@
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from '@mantine/core';
 import { useColorScheme, useHotkeys, useLocalStorage } from '@mantine/hooks';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 
 interface DokaProviderProps {
   children: ReactNode;
@@ -8,8 +8,7 @@ interface DokaProviderProps {
 
 const DokaProvider = (props: DokaProviderProps) => {
   const { children } = props;
-
-  const preferredColorScheme = useColorScheme();
+  const preferredColorScheme = useColorScheme('dark');
 
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
     key: 'mantine-color-scheme',
@@ -22,9 +21,13 @@ const DokaProvider = (props: DokaProviderProps) => {
 
   useHotkeys([['mod+J', () => toggleColorScheme()]]);
 
+  useEffect(() => {
+    if (colorScheme !== preferredColorScheme) setColorScheme(preferredColorScheme);
+  }, [preferredColorScheme]);
+
   return (
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-      <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
+      <MantineProvider theme={{ colorScheme: colorScheme }} withGlobalStyles withNormalizeCSS>
         {children}
       </MantineProvider>
     </ColorSchemeProvider>

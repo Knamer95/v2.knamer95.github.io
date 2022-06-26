@@ -17,4 +17,9 @@ export default {
     english: 'English',
     spanish: 'Español',
   },
+  notFound: {
+    title: 'Page not found',
+    htmlTitle: 'Error 404',
+    body: 'The requested page was not found. Please check that the URL exists.',
+  },
 };

@@ -1,14 +1,13 @@
 import { memo, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { faHome, faCode, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import { faHome, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faReact, faJsSquare } from '@fortawesome/free-brands-svg-icons';
-
-// import { waves, waves2 } from './waves';
-import { useTranslate } from '../hooks/useTranslate';
-import { NavItem } from '@/types/navbar';
-import { FrontRoutes } from '@/routes';
-import { Anchor, Box, Collapse, Navbar, NavbarProps, Text } from '@mantine/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Anchor, Box, Collapse, Navbar, NavbarProps } from '@mantine/core';
+
+import { useTranslate } from '../hooks';
+import { NavItem } from '@/types';
+import { FrontRoutes } from '@/routes';
 
 const DokaNavbar = memo((props: Partial<NavbarProps>) => {
   const t = useTranslate('navbar');
