@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Box, Center, Grid, Group, Image, Space, Text } from '@mantine/core';
+import { Box, Center, Grid, Group, Image, Space, Text, useMantineTheme } from '@mantine/core';
 import { useDocumentTitle } from '@mantine/hooks';
 import { Trans } from 'react-i18next';
 
@@ -11,18 +11,19 @@ import { DokaAnchor } from '@/components/mantine/DokaAnchor';
 
 const Contact = memo(() => {
   const t = useTranslate('contact');
+  const theme = useMantineTheme();
   useDocumentTitle(t('title'));
 
   const childrenProps = {
     button: {
-      color: 'pink' as const,
+      color: theme.primaryColor,
       variant: 'light' as const,
       compact: true,
       component: 'a' as const,
       target: '_blank',
     },
     anchor: {
-      color: 'pink' as const,
+      color: theme.primaryColor,
     },
     image: {
       styles: {

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { BackgroundImage, Box, Grid, Image, Space, Text } from '@mantine/core';
+import { BackgroundImage, Box, Grid, Image, Space, Text, useMantineTheme } from '@mantine/core';
 import { useDocumentTitle } from '@mantine/hooks';
 
 import NotFoundImage from '@/assets/misc/not-found.png';
@@ -8,11 +8,12 @@ import { useTranslate } from '@/hooks';
 
 const NotFound = memo(() => {
   const t = useTranslate('notFound');
+  const theme = useMantineTheme();
   useDocumentTitle(t('title'));
 
   const childrenProps = {
     button: {
-      color: 'pink' as const,
+      color: theme.primaryColor,
       variant: 'light' as const,
       component: 'a' as const,
       target: '_blank',

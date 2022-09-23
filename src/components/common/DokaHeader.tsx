@@ -41,8 +41,8 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { tabValue } = useParams();
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const theme = useMantineTheme();
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   const { currentLanguage, updateLanguage } = useUpdateLanguage();
 
@@ -115,7 +115,7 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
         },
       },
       color: 'gray',
-      hoverColor: 'pink',
+      hoverColor: theme.primaryColor,
     },
   };
 
@@ -123,10 +123,7 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
     <Header {...props} {...childrenProps.header}>
       <Group sx={{ justifyContent: 'space-between' }}>
         <Title order={4} sx={{ display: 'flex' }}>
-          <Text
-            color="pink"
-            sx={{ display: 'flex', alignItems: 'center', fontSize: 33, lineHeight: 0 }}
-          >
+          <Text color={theme.primaryColor} sx={{ display: 'flex', alignItems: 'center', fontSize: 33, lineHeight: 0 }}>
             @&nbsp;
           </Text>
           Knamer95
@@ -134,7 +131,6 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
         <Box sx={{ display: 'flex', gap: 10 }}>
           <Tabs
             defaultValue={location.pathname}
-            color="pink"
             // onTabChange={(to: FrontRoutes) => navigate(to)}
             {...childrenProps.tabs}
           >
@@ -170,7 +166,7 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
                   sx={{
                     ...(currentLanguage === lang && {
                       background: `${theme.fn.rgba(
-                        theme.colors.pink[colorScheme === 'light' ? 3 : 9],
+                        theme.colors[theme.primaryColor][colorScheme === 'light' ? 3 : 9],
                         0.2,
                       )} !important`,
                     }),

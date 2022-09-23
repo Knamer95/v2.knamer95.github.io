@@ -33,7 +33,7 @@ const SocialLinks = () => {
       transition: 'color 0s !important',
       '&:hover': {
         color: `${theme.fn.rgba(
-          theme.colors.pink[colorScheme === 'light' ? 5 : 7],
+          theme.colors[theme.primaryColor][colorScheme === 'light' ? 5 : 7],
           0.7,
         )} !important`,
       },

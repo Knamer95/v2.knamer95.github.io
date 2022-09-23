@@ -16,7 +16,7 @@ const DokaCardHeader = (props: DokaCardHeaderProps & TextProps) => {
   const { classes } = useStyles({ noPadding, size });
 
   const titleProps = {
-    color: 'pink',
+    color: theme.primaryColor,
     className: classes.root,
     ...rest,
   };
