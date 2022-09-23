@@ -6,7 +6,7 @@ interface DokaProviderProps {
   children: ReactNode;
 }
 
-const DokaProvider = (props: DokaProviderProps) => {
+const MantineProviderWrapper = (props: DokaProviderProps) => {
   const { children } = props;
   const preferredColorScheme = useColorScheme('dark');
 
@@ -34,4 +34,4 @@ const DokaProvider = (props: DokaProviderProps) => {
   );
 };
 
-export default DokaProvider;
+export default MantineProviderWrapper;

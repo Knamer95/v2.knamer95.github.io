@@ -1,4 +1,4 @@
-import DokaProvider from './context/DokaProvider';
+import MantineProviderWrapper from './context/MantineProviderWrapper';
 import { Box, MantineTheme, Paper, ScrollArea } from '@mantine/core';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ import './index.css';
 
 const App = () => {
   return (
-    <DokaProvider>
+    <MantineProviderWrapper>
       <HashRouter>
         <Paper
           sx={(theme: MantineTheme) => ({
@@ -24,7 +24,7 @@ const App = () => {
             }}
             type="auto"
           >
-            {/* - var(--mantine-footer-height)     - 116px */}
+            {/* - var(--mantine-footer-height) - 116px */}
             <Box
               sx={{
                 minHeight: 'calc(100vh - var(--mantine-header-height))',
@@ -42,7 +42,7 @@ const App = () => {
           </ScrollArea>
         </Paper>
       </HashRouter>
-    </DokaProvider>
+    </MantineProviderWrapper>
   );
 };
 
