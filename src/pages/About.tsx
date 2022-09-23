@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { useDocumentTitle } from '@mantine/hooks';
 
-import { useTranslate } from '@/hooks';
 import { DokaCard, DokaCardBody, DokaCardHeader } from '@/components/mantine';
+import { useTranslate } from '@/hooks';
 
 const About = memo(() => {
   const t = useTranslate('about');
