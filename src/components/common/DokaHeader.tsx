@@ -123,7 +123,10 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
     <Header {...props} {...childrenProps.header}>
       <Group sx={{ justifyContent: 'space-between' }}>
         <Title order={4} sx={{ display: 'flex' }}>
-          <Text color={theme.primaryColor} sx={{ display: 'flex', alignItems: 'center', fontSize: 33, lineHeight: 0 }}>
+          <Text
+            color={theme.primaryColor}
+            sx={{ display: 'flex', alignItems: 'center', fontSize: 33, lineHeight: 0 }}
+          >
             @&nbsp;
           </Text>
           Knamer95
