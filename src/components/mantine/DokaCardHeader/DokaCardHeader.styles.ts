@@ -7,7 +7,7 @@ interface StylesOptions {
 }
 
 export const useStyles = createStyles(
-  (theme, { styles, noPadding = false, size }: StylesOptions) => ({
+  (_theme, { styles, noPadding = false, size }: StylesOptions) => ({
     root: {
       paddingBottom: noPadding ? 0 : 40,
       ...(size as CSSObject),
