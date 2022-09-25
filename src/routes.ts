@@ -44,4 +44,3 @@ const error404 = {
 };
 
 export const appRoutes = [home, about, projects, contactMe, error404];
-

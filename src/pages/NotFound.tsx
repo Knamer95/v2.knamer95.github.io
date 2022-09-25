@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { BackgroundImage, Box, Grid, Image, Space, Text, useMantineTheme } from '@mantine/core';
+import { Box, Grid, Image, Space, Text, useMantineTheme } from '@mantine/core';
 import { useDocumentTitle } from '@mantine/hooks';
 
 import NotFoundImage from '@/assets/misc/not-found.png';

@@ -1,13 +1,13 @@
 import { memo } from 'react';
-import { Box, Center, Grid, Group, Image, Space, Text, useMantineTheme } from '@mantine/core';
+import { Box, Grid, Group, Image, Space, Text, useMantineTheme } from '@mantine/core';
 import { useDocumentTitle } from '@mantine/hooks';
 import { Trans } from 'react-i18next';
 
 import ContactMeImage from '@/assets/misc/contact-scaled.png';
 import { SocialLinks } from '@/components/common';
-import { DokaButton, DokaCard, DokaCardBody, DokaCardHeader } from '@/components/mantine';
+import { DokaAnchor, DokaButton, DokaCard } from '@/components/mantine';
+import { DokaCardBody, DokaCardHeader } from '@/components/mantine';
 import { useTranslate } from '@/hooks';
-import { DokaAnchor } from '@/components/mantine/DokaAnchor';
 
 const Contact = memo(() => {
   const t = useTranslate('contact');
@@ -93,12 +93,6 @@ const Contact = memo(() => {
               <Group spacing="xs" sx={{ fontSize: 20 }}>
                 <SocialLinks />
               </Group>
-
-              {/* <Space h={30} />
-
-          {Array.from({ length: 40 }).map((_, index) => (
-            <Box key={`fill-text-${index}`}>Fill text to remove</Box>
-          ))} */}
             </DokaCardBody>
           </DokaCard>
         </Grid.Col>

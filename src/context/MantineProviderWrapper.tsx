@@ -1,6 +1,6 @@
+import { ReactNode, useEffect } from 'react';
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from '@mantine/core';
 import { useColorScheme, useHotkeys, useLocalStorage } from '@mantine/hooks';
-import { ReactNode, useEffect } from 'react';
 
 interface DokaProviderProps {
   children: ReactNode;
@@ -23,11 +23,16 @@ const MantineProviderWrapper = (props: DokaProviderProps) => {
 
   useEffect(() => {
     if (colorScheme !== preferredColorScheme) setColorScheme(preferredColorScheme);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [preferredColorScheme]);
 
   return (
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-      <MantineProvider theme={{ colorScheme: colorScheme, primaryColor: 'pink' }} withGlobalStyles withNormalizeCSS>
+      <MantineProvider
+        theme={{ colorScheme: colorScheme, primaryColor: 'pink' }}
+        withGlobalStyles
+        withNormalizeCSS
+      >
         {children}
       </MantineProvider>
     </ColorSchemeProvider>

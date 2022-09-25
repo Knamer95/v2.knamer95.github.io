@@ -1,9 +1,9 @@
 import { memo, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { faHome, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faReact, faJsSquare } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Anchor, Box, Collapse, Navbar, NavbarProps } from '@mantine/core';
+import { faReact, faJsSquare } from '@fortawesome/free-brands-svg-icons';
+import { faHome, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
 import { useTranslate } from '@/hooks';
 import { FrontRoutes } from '@/routes';

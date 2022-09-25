@@ -1,6 +1,7 @@
-import { FrontRoutes } from '@/routes';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { MutableRefObject } from 'react';
+
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { FrontRoutes } from '@/routes';
 
 export interface NavItem {
   label: string;

@@ -1,9 +1,9 @@
-import MantineProviderWrapper from './context/MantineProviderWrapper';
 import { Box, MantineTheme, Paper, ScrollArea } from '@mantine/core';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import { DokaFooter, DokaHeader /* DokaNavbar */ } from '@/components/common';
-import { appRoutes } from './routes';
+import MantineProviderWrapper from '@/context/MantineProviderWrapper';
+import { appRoutes } from '@/routes';
 import './index.css';
 
 const App = () => {

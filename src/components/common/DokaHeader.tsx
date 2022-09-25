@@ -2,16 +2,6 @@
 
 import { memo, useRef } from 'react';
 import {
-  faHome,
-  faEnvelope,
-  faGlobe,
-  faMoon,
-  faSun,
-  faAddressCard,
-} from '@fortawesome/free-solid-svg-icons';
-import { faReact } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
   Box,
   Group,
   Header,
@@ -24,6 +14,16 @@ import {
   useMantineColorScheme,
   useMantineTheme,
 } from '@mantine/core';
+import { faReact } from '@fortawesome/free-brands-svg-icons';
+import {
+  faHome,
+  faEnvelope,
+  faGlobe,
+  faMoon,
+  faSun,
+  faAddressCard,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import { DokaButton } from '@/components/mantine';
@@ -101,7 +101,7 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
         tabsList: { borderBottomColor: 'transparent !important' },
       },
     },
-    getTab: ({ to, icon }: HeaderItem) => ({
+    getTab: ({ to, icon: _icon }: HeaderItem) => ({
       value: to,
       // icon: <FontAwesomeIcon icon={icon} />,
       sx: { padding: '10px 20px' },
