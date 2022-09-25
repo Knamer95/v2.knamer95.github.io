@@ -1,0 +1,21 @@
+# CSS & SASS files
+**/*.css
+**/*.scss
+
+# Images
+**/*.png
+**/*.gif
+**/*.svg
+
+# Declaration types
+**/*.d.types
+
+# Fonts
+**/*.woff
+**/*.woff2
+
+# Static html
+**/*.html
+
+# build-utils js files
+build-utils/*
