@@ -7,6 +7,17 @@ export default {
   },
   projects: {
     title: 'Proyectos',
+    viewMore: 'Ver más',
+    moonart: {
+      title: 'MoonArt',
+      p1: 'Red social enfocada en artistas',
+      p2: 'Encuentra nuevos artistas, haz amigos, customiza tu página, y disfruta de tus dibujos favoritos',
+    },
+    kuroe: {
+      title: 'Kuroe',
+      p1: 'Chat en tiempo real basado en Discord',
+      p2: 'Crea tu propia comunidad, únete a los diferentes servidores, y conoce nuevos amigos',
+    },
   },
   contact: {
     title: 'Contacto',
@@ -22,10 +33,7 @@ export default {
   navbar: {
     home: 'Home',
     about: 'Sobre mí',
-    // skills: 'Skills',
     projects: 'Proyectos',
-    // myProjects: 'My projects',
-    // collabs: 'Collabs',
     contact: 'Contacto',
     english: 'English',
     spanish: 'Español',
