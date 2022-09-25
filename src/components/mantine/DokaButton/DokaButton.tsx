@@ -14,8 +14,8 @@ interface DokaButtonProps {
 
 const DokaButton = forwardRef(
   (props: DokaButtonProps & ButtonProps, ref: ForwardedRef<HTMLButtonElement | null>) => {
-    const { color = 'gray', styles, children, noPadding, hoverColor, ...rest } = props;
-    const { classes } = useStyles({ styles, noPadding, hoverColor: hoverColor ?? color });
+    const { color = 'gray', styles, children, noPadding, hoverColor, className, ...rest } = props;
+    const { cx, classes } = useStyles({ styles, noPadding, hoverColor: hoverColor ?? color });
 
     const buttonProps = {
       ...(ref && { ref }),
@@ -25,7 +25,7 @@ const DokaButton = forwardRef(
 
     return (
       <>
-        <Button {...buttonProps} className={classes.root}>
+        <Button {...buttonProps} className={cx(classes.root, className)}>
           {children}
         </Button>
       </>

@@ -7,9 +7,9 @@ interface DokaCardBodyProps {
 }
 
 const DokaCardBody = (props: DokaCardBodyProps) => {
-  const { children } = props;
+  const { className, children } = props;
 
-  return <Box>{children}</Box>;
+  return <Box {...(className && { className })}>{children}</Box>;
 };
 
 export default DokaCardBody;

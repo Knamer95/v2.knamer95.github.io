@@ -9,15 +9,15 @@ interface DokaCardHeaderProps {
 }
 
 const DokaCardHeader = (props: DokaCardHeaderProps & TextProps) => {
-  const { children, order = 1, noPadding, ...rest } = props;
+  const { children, order = 1, noPadding, className, ...rest } = props;
   const theme = useMantineTheme();
   const size = theme.headings.sizes[`h${order}`];
 
-  const { classes } = useStyles({ noPadding, size });
+  const { cx, classes } = useStyles({ noPadding, size });
 
   const titleProps = {
     color: theme.primaryColor,
-    className: classes.root,
+    className: cx(classes.root, className),
     ...rest,
   };
 

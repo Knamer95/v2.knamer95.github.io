@@ -8,10 +8,10 @@ interface DokaCardProps {
 }
 
 const DokaCard = (props: DokaCardProps & PaperProps) => {
-  const { styles, children } = props;
-  const { classes } = useStyles(styles ?? {});
+  const { styles, className, children } = props;
+  const { cx, classes } = useStyles(styles ?? {});
 
-  return <Paper className={classes.root}>{children}</Paper>;
+  return <Paper className={cx(classes.root, className)}>{children}</Paper>;
 };
 
 export default DokaCard;
