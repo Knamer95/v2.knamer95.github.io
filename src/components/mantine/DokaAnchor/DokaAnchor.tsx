@@ -1,5 +1,11 @@
 import { ElementType } from 'react';
-import { Anchor, AnchorProps, CSSObject, DefaultMantineColor } from '@mantine/core';
+import {
+  Anchor,
+  AnchorProps,
+  CSSObject,
+  DefaultMantineColor,
+  useMantineTheme,
+} from '@mantine/core';
 
 import { useStyles } from './DokaAnchor.styles';
 
@@ -12,7 +18,8 @@ interface DokaAnchorProps {
 }
 
 const DokaAnchor = (props: DokaAnchorProps & AnchorProps) => {
-  const { color = 'gray', styles, children, hoverColor, className, ...rest } = props;
+  const theme = useMantineTheme();
+  const { color = theme.primaryColor, styles, children, hoverColor, className, ...rest } = props;
   const { cx, classes } = useStyles({ styles, hoverColor: hoverColor ?? color });
 
   const anchorProps = {
