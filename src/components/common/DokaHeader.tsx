@@ -3,11 +3,13 @@
 import { memo, useRef } from 'react';
 import {
   Box,
+  Divider,
   Group,
   Header,
   HeaderProps,
   Image,
   Menu,
+  Space,
   Tabs,
   Text,
   Title,
@@ -114,8 +116,6 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
           paddingRight: 12,
         },
       },
-      color: 'gray',
-      hoverColor: theme.primaryColor,
     },
   };
 
@@ -131,7 +131,7 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
           </Text>
           Knamer95
         </Title>
-        <Box sx={{ display: 'flex', gap: 10 }}>
+        <Group sx={{ gap: 10 }}>
           <Tabs
             defaultValue={location.pathname}
             // onTabChange={(to: FrontRoutes) => navigate(to)}
@@ -150,9 +150,18 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
             </Tabs.List>
           </Tabs>
 
+          <Space w={5} />
+          <Divider orientation="vertical" />
+          <Space w={5} />
+
           <Menu position="bottom-end">
             <Menu.Target>
-              <DokaButton variant="light" {...childrenProps.button}>
+              <DokaButton
+                color="gray"
+                hoverColor={theme.primaryColor}
+                variant="light"
+                {...childrenProps.button}
+              >
                 <FontAwesomeIcon icon={faGlobe} />
                 <Text sx={{ display: 'inline-block', fontFamily: 'monospace' }}>
                   &nbsp;
@@ -187,6 +196,7 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
             withArrow
           >
             <DokaButton
+              color={theme.colorScheme === 'dark' ? 'yellow' : 'dark'}
               variant="light"
               onClick={() => toggleColorScheme()}
               {...childrenProps.button}
@@ -194,7 +204,7 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
               <FontAwesomeIcon icon={colorScheme === 'light' ? faMoon : faSun} />
             </DokaButton>
           </DokaTooltip>
-        </Box>
+        </Group>
       </Group>
     </Header>
   );
