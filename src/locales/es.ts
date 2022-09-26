@@ -37,6 +37,9 @@ export default {
     contact: 'Contacto',
     english: 'English',
     spanish: 'Español',
+    swapTo: 'Cambiar al modo {{colorScheme}}',
+    lightMode: 'claro',
+    darkMode: 'oscuro',
   },
   notFound: {
     title: 'Página no encontrada',

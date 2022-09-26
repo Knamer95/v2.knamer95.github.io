@@ -37,6 +37,9 @@ export default {
     contact: 'Contact me',
     english: 'English',
     spanish: 'Español',
+    swapTo: 'Swap to {{colorScheme}} mode',
+    lightMode: 'light',
+    darkMode: 'dark',
   },
   notFound: {
     title: 'Page not found',
