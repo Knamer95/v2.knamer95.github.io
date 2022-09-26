@@ -1,4 +1,4 @@
-import { Text, TextProps, TitleOrder, useMantineTheme } from '@mantine/core';
+import { TextProps, Title, TitleOrder, useMantineTheme } from '@mantine/core';
 
 import { useStyles } from './DokaCardHeader.styles';
 
@@ -21,7 +21,11 @@ const DokaCardHeader = (props: DokaCardHeaderProps & TextProps) => {
     ...rest,
   };
 
-  return <Text {...titleProps}>{children}</Text>;
+  return (
+    <Title order={order} {...titleProps}>
+      {children}
+    </Title>
+  );
 };
 
 export default DokaCardHeader;
