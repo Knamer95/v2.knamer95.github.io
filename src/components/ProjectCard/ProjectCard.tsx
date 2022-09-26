@@ -1,17 +1,7 @@
-import {
-  BackgroundImage,
-  Badge,
-  Box,
-  Group,
-  Space,
-  Stack,
-  Text,
-  Title,
-  Tooltip,
-} from '@mantine/core';
+import { BackgroundImage, Badge, Box, Group, Space, Stack, Text, Title } from '@mantine/core';
 import { Link } from 'react-router-dom';
 
-import { DokaAnchor } from '@/components/mantine';
+import { DokaAnchor, DokaTooltip } from '@/components/mantine';
 import { useTranslate } from '@/hooks';
 import { ProjectCardInfo } from '@/types/project';
 import { useStyles } from './ProjectCard.styles';
@@ -32,7 +22,7 @@ const ProjectCard = (props: ProjectCardProps) => {
         <Space h={200} />
         <Box className={classes.body}>
           <Title order={4}>{project.name}</Title>
-          <Space h={5} />
+          <Space h={8} />
           <Group spacing="xs">
             {project.tags.slice(0, tagsToDisplay).map((tag, tagIndex) => (
               <Badge key={tagIndex} color={tag.color}>
@@ -40,7 +30,7 @@ const ProjectCard = (props: ProjectCardProps) => {
               </Badge>
             ))}
             {project.tags.length > tagsToDisplay && (
-              <Tooltip
+              <DokaTooltip
                 color="gray"
                 position="right"
                 withArrow
@@ -55,7 +45,7 @@ const ProjectCard = (props: ProjectCardProps) => {
                 <Badge className={classes.secondaryBadge}>{`+ ${
                   project.tags.length - tagsToDisplay
                 } tags`}</Badge>
-              </Tooltip>
+              </DokaTooltip>
             )}
           </Group>
           <Space h={15} />
@@ -63,7 +53,7 @@ const ProjectCard = (props: ProjectCardProps) => {
             {project.shortDescription}
           </Text>
           <Space h={15} />
-          <DokaAnchor className={classes.anchor} component={Link} href={project.href}>
+          <DokaAnchor color="blue" component={Link} href={project.href}>
             {t('viewMore')}
           </DokaAnchor>
         </Box>

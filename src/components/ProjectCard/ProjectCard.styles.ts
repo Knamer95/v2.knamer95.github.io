@@ -21,7 +21,4 @@ export const useStyles = createStyles((theme) => ({
     WebkitBoxOrient: 'vertical',
     display: '-webkit-box',
   },
-  anchor: {
-    color: theme.colors.blue[theme.colorScheme === 'dark' ? 1 : 8],
-  },
 }));
