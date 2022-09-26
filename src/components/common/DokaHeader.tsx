@@ -26,7 +26,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
-import { DokaButton } from '@/components/mantine';
+import { DokaButton, DokaTooltip } from '@/components/mantine';
 import { useTranslate, useUpdateLanguage } from '@/hooks';
 import { flagEN, flagES } from '@/logic';
 import { FrontRoutes } from '@/routes';
@@ -90,7 +90,7 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
   const childrenProps = {
     header: {
       sx: {
-        padding: '10px 5%!important',
+        padding: '10px 60px!important',
         userSelect: 'none' as const,
       },
     },
@@ -181,9 +181,19 @@ const DokaHeader = memo((props: DokaHeaderProps & Partial<HeaderProps>) => {
             </Menu.Dropdown>
           </Menu>
 
-          <DokaButton variant="light" onClick={() => toggleColorScheme()} {...childrenProps.button}>
-            <FontAwesomeIcon icon={colorScheme === 'light' ? faMoon : faSun} />
-          </DokaButton>
+          <DokaTooltip
+            label={t('swapTo', { colorScheme: t(theme.colorScheme === 'dark' ? 'light' : 'dark') })}
+            color={theme.colorScheme === 'dark' ? 'yellow' : 'dark'}
+            withArrow
+          >
+            <DokaButton
+              variant="light"
+              onClick={() => toggleColorScheme()}
+              {...childrenProps.button}
+            >
+              <FontAwesomeIcon icon={colorScheme === 'light' ? faMoon : faSun} />
+            </DokaButton>
+          </DokaTooltip>
         </Box>
       </Group>
     </Header>

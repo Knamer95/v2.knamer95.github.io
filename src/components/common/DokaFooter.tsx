@@ -14,7 +14,7 @@ const DokaFooter = memo(
     const childrenProps = {
       footer: {
         sx: {
-          padding: '20px 5%!important',
+          padding: '20px 60px!important',
           position: 'relative',
           zIndex: 0,
         } as Sx,
