@@ -32,7 +32,7 @@ const Projects = memo(() => {
       name: 'Kuroe',
       tags: [
         { color: 'blue', value: 'React' },
-        { color: 'yellow', value: 'ExpressJS' },
+        { color: 'yellow', value: 'Express' },
         { color: 'gray', value: 'Socket.io' },
         { color: 'cyan', value: 'Mantine' },
         { color: 'green', value: 'MongoDB' },
